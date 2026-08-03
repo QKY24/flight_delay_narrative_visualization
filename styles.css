@@ -1,0 +1,307 @@
+/* Simple course-project styling shared by all three scenes. */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  color: #111;
+  background: #dceff5;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.45;
+}
+
+button,
+select {
+  font: inherit;
+}
+
+main {
+  width: min(1100px, 94%);
+  margin: 0 auto;
+  padding: 18px 0 50px;
+}
+
+.scene-copy {
+  margin-bottom: 22px;
+  text-align: center;
+}
+
+h1 {
+  margin: 0 0 12px;
+  font-size: clamp(2rem, 5vw, 3rem);
+  line-height: 1.15;
+}
+
+h2 {
+  margin: 0 0 7px;
+  font-size: 1.35rem;
+}
+
+.lede {
+  max-width: 780px;
+  margin: 0 auto 16px;
+  font-size: 1.05rem;
+}
+
+.scene-navigation {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+button {
+  padding: 7px 14px;
+  border: 1px solid #666;
+  border-radius: 3px;
+  color: #111;
+  background: #f5f5f5;
+  cursor: pointer;
+}
+
+button:hover:not(:disabled) {
+  background: #e2e2e2;
+}
+
+button:disabled {
+  cursor: default;
+  opacity: 0.55;
+}
+
+button:focus-visible,
+select:focus-visible,
+.bar-hit-area:focus-visible {
+  outline: 2px solid #1d70a2;
+  outline-offset: 2px;
+}
+
+.chart-card {
+  padding: 22px;
+  border: 1px solid #999;
+  background: #fff;
+}
+
+.chart-header {
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.chart-header p {
+  margin: 0;
+  color: #555;
+  font-size: 0.9rem;
+}
+
+.chart-frame {
+  position: relative;
+  min-height: 500px;
+}
+
+.chart-svg {
+  display: block;
+  width: 100%;
+  height: 500px;
+  overflow: visible;
+}
+
+.scene-2-frame,
+.scene-2-frame .chart-svg {
+  min-height: 570px;
+  height: 570px;
+}
+
+.scene-3-frame,
+.scene-3-frame .chart-svg {
+  min-height: 540px;
+  height: 540px;
+}
+
+.axis text {
+  fill: #555;
+  font-size: 11px;
+}
+
+.axis .domain {
+  display: none;
+}
+
+.axis line {
+  stroke: #ddd;
+}
+
+.cause-label,
+.carrier-label {
+  fill: #111;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.value-label {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.bar-group.is-muted,
+.stack-segment.is-muted,
+.legend-item.is-muted {
+  opacity: 0.22;
+}
+
+.bar-hit-area,
+.stack-segment {
+  cursor: pointer;
+}
+
+/* Keep the full-row Scene 1 hover target interactive without covering the bars. */
+.bar-hit-area {
+  fill: transparent;
+}
+
+.annotation-note-title {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.annotation-note-label {
+  font-size: 11px;
+}
+
+.annotation path,
+.annotation line {
+  stroke: #1d70a2;
+}
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 16px;
+  margin: 15px 0 5px;
+}
+
+.legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px;
+  border: 0;
+  background: transparent;
+  font-size: 0.82rem;
+}
+
+.legend-swatch {
+  width: 13px;
+  height: 13px;
+  border: 1px solid rgb(0 0 0 / 20%);
+}
+
+.insight {
+  margin: 0;
+  padding-top: 12px;
+  border-top: 1px solid #ccc;
+  color: #111;
+  font-size: 0.9rem;
+}
+
+.tooltip {
+  position: absolute;
+  z-index: 2;
+  max-width: 260px;
+  padding: 8px 10px;
+  border: 1px solid #444;
+  color: #fff;
+  background: #222;
+  font-size: 0.78rem;
+  pointer-events: none;
+}
+
+.tooltip strong,
+.tooltip span {
+  display: block;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 18px;
+}
+
+.controls label {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-weight: 700;
+}
+
+select {
+  padding: 5px 7px;
+  border: 1px solid #777;
+  background: #fff;
+}
+
+.period-note {
+  max-width: 720px;
+  margin: 12px auto;
+  padding: 8px 10px;
+  border: 1px solid #c58c29;
+  background: #fff4d6;
+  font-size: 0.86rem;
+  text-align: center;
+}
+
+.next-question {
+  margin-top: 20px;
+  padding: 12px;
+  border: 1px solid #999;
+  background: #f7f7f7;
+  text-align: center;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 680px) {
+  main {
+    width: 97%;
+    padding-top: 10px;
+  }
+
+  .chart-card {
+    padding: 14px 7px;
+  }
+
+  .chart-frame,
+  .chart-svg {
+    min-height: 560px;
+    height: 560px;
+  }
+
+  .scene-2-frame,
+  .scene-2-frame .chart-svg {
+    min-height: 620px;
+    height: 620px;
+  }
+
+  .controls {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 8px;
+    padding: 0 10px;
+  }
+
+  .controls label {
+    justify-content: space-between;
+  }
+}

@@ -1,0 +1,6 @@
+cause_key,cause,delay_minutes,share
+late_aircraft,Late Aircraft Delay,49886915,0.40007978191649
+carrier,Air Carrier Delay,39693774,0.318333503792777
+nas,National Aviation System Delay,26910262,0.215813139623398
+weather,Weather Delay,8044943,0.0645183018627348
+security,Security Delay,156523,0.00125527280460046

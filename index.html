@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A D3 narrative visualization about the causes of U.S. flight delays."
+    />
+    <title>What Really Causes U.S. Flight Delays?</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9C%88%3C/text%3E%3C/svg%3E"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <main>
+      <!-- Scene 1: overall 2025 causes -->
+      <section id="scene-1" class="scene-panel" aria-labelledby="scene-1-heading">
+        <header class="scene-copy">
+          <h1 id="scene-1-heading">What really causes U.S. flight delays?</h1>
+          <p class="lede">
+            Weather often gets the blame when a flight arrives late. The BTS data
+            tells a more complicated story.
+          </p>
+        </header>
+
+        <section class="chart-card" aria-labelledby="scene-1-chart-heading">
+          <div class="chart-header">
+            <h2 id="scene-1-chart-heading">2025 delay minutes by cause</h2>
+            <p>U.S. airlines · percentage of five reported causes</p>
+          </div>
+
+          <div id="scene-1-chart-frame" class="chart-frame">
+            <svg
+              id="scene-1-chart"
+              class="chart-svg"
+              role="img"
+              aria-labelledby="scene-1-chart-heading scene-1-description"
+            ></svg>
+            <p id="scene-1-description" class="sr-only">
+              Horizontal bars compare 2025 delay minutes across five reported causes.
+            </p>
+            <div id="scene-1-tooltip" class="tooltip" role="status" hidden></div>
+          </div>
+
+          <aside id="scene-1-insight" class="insight">
+            <strong>Key takeaway:</strong> Late-arriving aircraft generated 6.2 times
+            as many delay minutes as weather.
+          </aside>
+        </section>
+
+        <div class="next-question">
+          <strong>Next question:</strong> Do all airlines share the same delay pattern?
+        </div>
+
+        <nav class="scene-navigation" aria-label="Scene 1 navigation">
+          <button type="button" disabled>Previous</button>
+          <button type="button" data-scene-target="1" data-reset="true">Start Over</button>
+          <button type="button" data-scene-target="2">Next</button>
+        </nav>
+      </section>
+
+      <!-- Scene 2: airline comparison -->
+      <section
+        id="scene-2"
+        class="scene-panel"
+        aria-labelledby="scene-2-heading"
+        hidden
+      >
+        <header class="scene-copy">
+          <h1 id="scene-2-heading">Delay patterns differ across airlines</h1>
+          <p class="lede">
+            The bars below compare the eight reporting carriers with the most
+            arriving flights in 2025. Each bar adds to 100%.
+          </p>
+        </header>
+
+        <section class="chart-card" aria-labelledby="scene-2-chart-heading">
+          <div class="chart-header">
+            <h2 id="scene-2-chart-heading">Cause composition by carrier, 2025</h2>
+            <p>Share of each carrier’s five reported delay-cause minutes</p>
+          </div>
+
+          <div id="scene-2-legend" class="legend" aria-label="Delay cause legend"></div>
+
+          <div id="scene-2-chart-frame" class="chart-frame scene-2-frame">
+            <svg
+              id="scene-2-chart"
+              class="chart-svg"
+              role="img"
+              aria-labelledby="scene-2-chart-heading scene-2-description"
+            ></svg>
+            <p id="scene-2-description" class="sr-only">
+              One hundred percent stacked bars compare delay cause composition across
+              eight high-volume reporting carriers in 2025.
+            </p>
+            <div id="scene-2-tooltip" class="tooltip" role="status" hidden></div>
+          </div>
+
+          <aside class="insight">
+            <strong>Key takeaway:</strong> No single cause profile represents every
+            airline. Late aircraft makes up more than half of Southwest’s reported
+            cause minutes, while carrier delay is largest for Delta and SkyWest.
+          </aside>
+        </section>
+
+        <div class="next-question">
+          <strong>Next question:</strong> Does an airline’s mix stay the same every
+          month and every year?
+        </div>
+
+        <nav class="scene-navigation" aria-label="Scene 2 navigation">
+          <button type="button" data-scene-target="1">Previous</button>
+          <button type="button" data-scene-target="1" data-reset="true">Start Over</button>
+          <button type="button" data-scene-target="3">Next</button>
+        </nav>
+      </section>
+
+      <!-- Scene 3: interactive monthly exploration -->
+      <section
+        id="scene-3"
+        class="scene-panel"
+        aria-labelledby="scene-3-heading"
+        hidden
+      >
+        <header class="scene-copy">
+          <h1 id="scene-3-heading">Explore how the mix changes by month</h1>
+          <p class="lede">
+            Choose a reporting carrier and year. Each monthly bar adds to 100%, so the
+            chart compares composition rather than total traffic volume.
+          </p>
+        </header>
+
+        <section class="chart-card" aria-labelledby="scene-3-chart-heading">
+          <div class="controls" aria-label="Scene 3 parameters">
+            <label for="carrier-select">
+              Airline
+              <select id="carrier-select"></select>
+            </label>
+            <label for="year-select">
+              Year
+              <select id="year-select"></select>
+            </label>
+          </div>
+
+          <div class="chart-header">
+            <h2 id="scene-3-chart-heading">Monthly delay-cause composition</h2>
+            <p id="scene-3-subtitle">Southwest Airlines · 2025</p>
+          </div>
+
+          <p id="period-note" class="period-note" hidden></p>
+          <div id="scene-3-legend" class="legend" aria-label="Delay cause legend"></div>
+
+          <div id="scene-3-chart-frame" class="chart-frame scene-3-frame">
+            <svg
+              id="scene-3-chart"
+              class="chart-svg"
+              role="img"
+              aria-labelledby="scene-3-chart-heading scene-3-description"
+            ></svg>
+            <p id="scene-3-description" class="sr-only">
+              Monthly one hundred percent stacked bars update when the selected carrier
+              or year changes.
+            </p>
+            <div id="scene-3-tooltip" class="tooltip" role="status" hidden></div>
+          </div>
+
+          <aside id="scene-3-summary" class="insight"></aside>
+        </section>
+
+        <nav class="scene-navigation" aria-label="Scene 3 navigation">
+          <button type="button" data-scene-target="2">Previous</button>
+          <button type="button" data-scene-target="1" data-reset="true">Start Over</button>
+        </nav>
+      </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-annotation/2.5.1/d3-annotation.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
